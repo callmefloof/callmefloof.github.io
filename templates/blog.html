@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<main id="blogposts-main">
+  <h1 id="blogposts-header">
+    {{ section.title }}
+  </h1>
+  <section class="blogposts" aria-label="blog posts">
+      {{- macros::display_cards(path="blog/_index.md", class="blogpost") -}}       
+
+    </section>
+</main>
+{% endblock content %}

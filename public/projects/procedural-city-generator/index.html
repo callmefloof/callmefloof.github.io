@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joëlle Ubink – Game Dev Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body class="crt">
+        <svg viewBox="0 0 200 200" style="position: absolute; width: 0; height: 0;">
+            <defs>
+              <filter id="crt-warp" x="-50%" y="-50%" width="200%" height="200%">
+                <!-- Optimized for performance -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="1" seed="2" result="turb"/>
+                <feDisplacementMap in2="turb" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+    </svg>
+    <header class="main-header">
+      <div class="post-header">
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/blog">Blog</a>
+      </div>
+    </header>
+    <div class="crt-bg"></div>
+      
+<main class="post">
+  <h1 class="title">
+    Procedural City Generator
+  </h1>
+  <hr>
+  
+
+
+
+    
+
+    
+
+    
+
+    
+
+<p class="tags"><strong>Tags: </strong> Unity,  C#,  Procedural Generation,  Open World </p>
+
+  <p class="subtitle"><strong></strong></p>
+  <hr>
+  <h1 id="project-link"><a href="https://git.hku.nl/joelle.ubink/vygr-unity">Project Link</a></h1>
+<p>In the first year of my degree program at HKU, I made a procedural city generator for my end-year project over a 5-6 month period.</p>
+<p>I started making this procedural city generator in the Godot game engine but later switched to Unity. I switched to Unity as it had better tools for debugging the generation while I was working on it. The system works through layers and the only-the-fly instantiation of prefab objects. This allowed me to implement a floating origin system allowing the map size to reach millions of units without issue.</p>
+<p>The layer system works by defining the characteristics of each layer with a custom script that tells the generator how to interpret each pixel of the image layer and how to apply it. The roadmap layout uses binary space partitioning to create a generated grid-based roadmap layout. The white space represents an area for buildings to spawn on while the black space represents a piece of road. The script interpreting the roadmap then interprets this information and instantiates it around the player. The height of buildings is determined through a pre-generated height map. The location of where roads, buildings, and water spawn are based on the Land/Ocean layer where a white pixel correlates to being land and a black pixel water.</p>
+<p>The generator spawns objects based on where the player is located in the virtual space. The virtual space is the size of the map in pixels multiplied by the predefined in-game size of a pixel. The player can be placed at any point in the world. The world then gets spawned around the player based on the maximum spawning distance for prefab objects. The world gets regenerated whenever the player travels too far away from their origin point. The origin point is a predefined position in the Unity game world. When the world gets regenerated the position of the player gets reset to the origin point while retaining the distance traveled in virtual space.</p>
+<p>The prefabs contained prebaked lightmap information which enabled me to optimize lighting by making lighting static when far away from the player. The windows in the buildings feature parallax mapping for extra detail.</p>
+<p>The one major issue I faced during development was the time needed to regenerate the world around the player. At render sizes of greater than 20 by 20 pixels from the map the FPS halves and creates stutter. I was partially able to address this by spreading out the instantiation of objects over a larger amount of frames. This approach created a new issue, however, as the world seemingly reappeared in front of the player, which broke the illusion of a contiguous world space. I ultimately ended up compromising by accepting some level of stutter when the world has to be regenerated.</p>
+<p>Due to time constraints, I was not able to look at other potential optimization techniques like object culling, (H)LODs, and object pooling. Nevertheless, I was quite happy with what I was able to make with the allotted time.</p>
+<div class="gallery">
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+
+      <a href="#img0" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;Asset-2@3bxa.5dc821e8c9ebfca0.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img0">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img7" class="prev">&#10094;</a>
+        <a href="#img1" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\Asset-2@3bxa.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img1" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;brave_2024-02-19_17-31-41.b59a6b62bdea1320.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img1">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img0" class="prev">&#10094;</a>
+        <a href="#img2" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\brave_2024-02-19_17-31-41.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img2" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;HeightMap.88ab7b46cd3af45c.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img2">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img1" class="prev">&#10094;</a>
+        <a href="#img3" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\HeightMap.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img3" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;map2.074d7ad6de291a1e.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img3">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img2" class="prev">&#10094;</a>
+        <a href="#img4" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\map2.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img4" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;mapLand.20ba1c2314e87f38.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img4">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img3" class="prev">&#10094;</a>
+        <a href="#img5" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\mapLand.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img5" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;RoadLayout.a6b1d335612d3e5d.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img5">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img4" class="prev">&#10094;</a>
+        <a href="#img6" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\RoadLayout.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img6" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;Unity_2024-04-26_01-09-16.1f8e83460f30d537.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img6">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img5" class="prev">&#10094;</a>
+        <a href="#img7" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\Unity_2024-04-26_01-09-16.png" alt="" />
+      </div>
+
+      
+    
+  
+    
+      
+      
+
+      <a href="#img7" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;Unity_2024-04-26_03-02-05-scaled.e611f0707c9db414.jpg" alt="" />
+      </a>
+
+      <div class="lightbox" id="img7">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img6" class="prev">&#10094;</a>
+        <a href="#img0" class="next">&#10095;</a>
+        <img src="&#x2F;projects\procedural-city-generator\Unity_2024-04-26_03-02-05-scaled.jpg" alt="" />
+      </div>
+
+      
+    
+  
+</div>
+</main>
+
+  </body>
+</html>

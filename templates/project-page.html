@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<main class="post">
+  <h1 class="title">
+    {{ page.title }}
+  </h1>
+  <hr>
+  {{macros::create_tag_list(card=page)}}
+  <p class="subtitle"><strong>{{ page.date }}</strong></p>
+  <hr>
+  {{ page.content | safe }}
+</main>
+{% endblock content %}

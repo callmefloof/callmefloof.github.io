@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joëlle Ubink – Game Dev Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body class="crt">
+        <svg viewBox="0 0 200 200" style="position: absolute; width: 0; height: 0;">
+            <defs>
+              <filter id="crt-warp" x="-50%" y="-50%" width="200%" height="200%">
+                <!-- Optimized for performance -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="1" seed="2" result="turb"/>
+                <feDisplacementMap in2="turb" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+    </svg>
+    <header class="main-header">
+      <div class="post-header">
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/blog">Blog</a>
+      </div>
+    </header>
+    <div class="crt-bg"></div>
+      
+<main class="post">
+  <h1 class="title">
+    Unity Basketball AI
+  </h1>
+  <hr>
+  
+
+
+
+    
+
+    
+
+<p class="tags"><strong>Tags: </strong> C#,  Unity </p>
+
+  <p class="subtitle"><strong></strong></p>
+  <hr>
+  <div class="youtube-video">
+    <iframe
+        src="https://www.youtube.com/embed/lks7dUlJo6w"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+        width="1280"
+        height="720"
+        style="width:1280;height:720">
+        
+    </iframe>
+</div><h1 id="project-link"><a href="https://github.com/callmefloof/basketball_game">Project Link</a></h1>
+<p>While studying at Hanze University of Applied Sciences, my teammate and I developed a basketball simulation game featuring AI-controlled teams. My primary role was designing the AI, ensuring it could make strategic decisions and react dynamically to in-game situations. To achieve this, I built a StateMachine to manage different behaviors, an EnvironmentalInfoComponent to process game data and suggest actions, and a ReflexBehavior system to handle instinctive reactions, such as jumping to block a shot.</p>
+<p>One of the biggest challenges was debugging, as the AI’s growing complexity made it difficult to determine whether unexpected behavior was intentional or a bug. Additionally, calculating realistic ball trajectories required a physics-based approach, and I chose to use Unity’s rigid body system rather than manually interpolating the ball’s movement. This ensured that shooting and dribbling felt natural and dynamic.</p>
+<p>The AI continuously evaluates its environment, adapting its actions based on factors like ball possession, opponent positioning, and scoring opportunities. The Examine state acts as the AI’s default mode, helping it transition smoothly between actions like passing, defending, or moving toward the hoop. The ball mechanics were carefully designed to respond to player movement speed, creating a more fluid and realistic experience.</p>
+<p>Overall, I am proud of what we accomplished within the given timeframe. However, if I were to continue development, I would focus on cleaning up the code, implementing a custom pathfinding system for better movement control, replacing the simple player models with more detailed ones, and adding an in-game UI for configuring matches before they start.</p>
+<div class="gallery">
+  
+  
+  
+    
+      
+    
+  
+
+  
+  
+  
+  
+    
+      
+      
+
+      <a href="#img0" class="gallery-thumb">
+        <img src="https:&#x2F;&#x2F;joelleubink.com&#x2F;processed_images&#x2F;vlc_2025-03-02_22-53-12.601b6d7156dc9382.png" alt="" />
+      </a>
+
+      <div class="lightbox" id="img0">
+        <a href="#" class="close">&times;</a>
+        
+          
+        
+        
+          
+        
+        <a href="#img0" class="prev">&#10094;</a>
+        <a href="#img0" class="next">&#10095;</a>
+        <img src="&#x2F;projects\basketball-ai-sim\vlc_2025-03-02_22-53-12.png" alt="" />
+      </div>
+
+      
+    
+  
+</div>
+</main>
+
+  </body>
+</html>

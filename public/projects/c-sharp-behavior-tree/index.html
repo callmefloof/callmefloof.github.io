@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joëlle Ubink – Game Dev Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body class="crt">
+        <svg viewBox="0 0 200 200" style="position: absolute; width: 0; height: 0;">
+            <defs>
+              <filter id="crt-warp" x="-50%" y="-50%" width="200%" height="200%">
+                <!-- Optimized for performance -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.015" numOctaves="1" seed="2" result="turb"/>
+                <feDisplacementMap in2="turb" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+    </svg>
+    <header class="main-header">
+      <div class="post-header">
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/blog">Blog</a>
+      </div>
+    </header>
+    <div class="crt-bg"></div>
+      
+<main class="post">
+  <h1 class="title">
+    C# Behavior Tree
+  </h1>
+  <hr>
+  
+
+
+
+    
+
+    
+
+    
+
+    
+
+<p class="tags"><strong>Tags: </strong> C#,  Unity,  AI,  Simulation </p>
+
+  <p class="subtitle"><strong></strong></p>
+  <hr>
+  <div class="youtube-video">
+    <iframe
+        src="https://www.youtube.com/embed/OoIPVOmgLnA"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+        width="1280"
+        height="720"
+        style="width:1280;height:720">
+        
+    </iframe>
+</div><h1 id="project-link"><a href="https://git.hku.nl/joelle.ubink/unityaibehaviortree">Project Link</a></h1>
+<p>For this assignment, I developed a Behavior Tree system for AI agents, specifically a guard and a rogue. I created a hierarchical Behavior Tree structure with a BTNode base class, which includes composite (BTCompositeNode), decorator (BTDecoratorNode), and task (BTTaskNode) nodes. Each of these serves a distinct function, such as managing execution flow, modifying behavior, or performing specific agent actions.</p>
+<p>I implemented several task nodes, including BTWalkToPointNode, BTAttackPlayerNode, and BTThrowSmokeBombNode, to handle movement, combat, and interactions. The Guard and Rogue AI agents use this system, with the Guard detecting and reacting to the player. To facilitate communication between agents, I implemented a GlobalBlackboard, allowing the rogue to respond to changes in the guard’s state.</p>
+<p>I structured the tasks into generic and agent-specific categories to maximize reusability while maintaining flexibility. Additionally, I made the BTLogNode capable of updating text above the agent’s head for easier debugging.</p>
+
+</main>
+
+  </body>
+</html>

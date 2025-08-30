@@ -1,0 +1,52 @@
+{% macro create_tag_list(card) %}
+{% set_global tag_count = 0 %}
+{% set_global num_tags = 0 %}
+{%for tag in card.extra.tags %}
+    {% set_global num_tags = num_tags + 1 %}
+{% endfor %}
+<p class="tags"><strong>Tags: </strong>{%for tag in card.extra.tags %} {{tag}}{% if tag_count != num_tags - 1 %},{% set_global tag_count = tag_count + 1 %}{%else%}{%endif%} {%endfor%}</p>
+{% endmacro %}
+
+{%macro display_cards(path="projects/_index.md", class="project-card") %}
+{% set cards_section = get_section(path=path) %}
+{% for card in cards_section.pages | sort(attribute="extra.index")%}
+    <a href="{{card.permalink}}">
+        <article tabindex="{{card.extra.index}}" style="grid-column: 1;" class="{{class}}" role="region" aria-labelledby="{{card.title}}">
+            <div class="video-hover-container">
+                {% if card.extra.is_youtube == false %}
+                    {% if card.extra.preview_video == "" %}
+                        <img class="video-hover-container-fallback" src="{{card.permalink}}{{card.extra.preview_image}}" alt="Video thumbnail" />
+                    {% else %}
+                        {% if card.extra.preview_image is starting_with("http:") or card.extra.preview_image is starting_with("https:") %}
+                            <img src="{{card.extra.preview_image}}" alt="Video thumbnail" />
+                        {% else %}
+                            <img src="{{card.permalink}}{{card.extra.preview_image}}" alt="Video thumbnail" />
+                        {% endif %}
+                        {% if card.extra.preview_video is starting_with("http:") or card.extra.preview_video is starting_with("https:")%}
+                            <video src="{{card.extra.preview_video}}#t=1" autoplay muted loop></video>
+                        {% else %}
+                            <video src="{{card.permalink}}{{card.extra.preview_video}}#t=1" autoplay muted loop></video>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <img src="https://img.youtube.com/vi/{{card.extra.yvid_id}}/maxresdefault.jpg" alt="Video thumbnail" />
+                    <iframe
+                        width = "100%"
+                        height = "100%"
+                        src="https://www.youtube.com/embed/{{card.extra.yvid_id}}?autoplay=1&mute=1&loop=1&rel=0&modestbranding&controls=0&vq=hd720"
+                        webkitallowfullscreen
+                        mozallowfullscreen
+                        allowfullscreen>
+                    </iframe>                        
+                {% endif %}
+                <div class="project-card-info">
+                    <p class="project-card-description">{{card.description}}</p>
+                    {{macros::create_tag_list(card=card)}}
+                    
+                    <h2 id="{{card.title}}">{{card.title}}</h2>
+                </div>         
+            </div>
+        </article>
+    </a>
+{% endfor %}
+{%endmacro display_cards %}

@@ -1,0 +1,31 @@
+# The URL the site will be built for
+base_url = "https://joelleubink.com"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+exclude_paginated_pages_in_sitemap = "all"
+
+taxonomies = [
+    { name = "aboutlinksnames", feed = true },
+    { name = "aboutlinksurls", feed = true },
+    { name = "aboutlinksisstaticsvg", feed = true },
+    { name = "aboutlinksstaticsvgtype", feed = true},
+    { name = "aboutlinksimageurl", feed = true },
+    { name = "tags", feed = true },
+]
+
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+render_emoji = true
+
+
+
+
+[extra]
+# Put all your custom variables here

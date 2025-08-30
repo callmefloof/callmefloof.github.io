@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<div class="greeting">
+    <h1>Hello,</h1>
+    <h2>I am Joëlle Ubink</h2>
+</div>
+<main>
+    <section class="about" area-label="about info">
+        {% set about_info = get_section(path="_index.md")%}
+        <article class="hero">
+            {{- about_info.content | safe -}}
+        </article>
+    </section>
+    <section class="projects" aria-label="portfolio projects">
+    {{- macros::display_cards() -}}       
+    </section>
+</main>   
+{% endblock content %}
