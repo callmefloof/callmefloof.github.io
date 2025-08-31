@@ -679,6 +679,7 @@ html:has(#effects-on:checked) .post{
 .youtube-video iframe{
     min-height: 180px;
     max-height: 900px;
+    max-width: 100%;
 }
 
 html{
