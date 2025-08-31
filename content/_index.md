@@ -86,8 +86,7 @@ game_engines = [
 
 {{ heroh1(body="About Me") }}
 
-
-
+ {{resize_image(path="/images/who.png", width=200, height=300, op="fit")}}
 
 I’m a game development student and aspiring gameplay programmer, eager to explore and develop systems that create emergent interactions between players and the game world. I’m fascinated by breaking down game mechanics into structured, scalable systems and aspire to tackle challenges like crowd simulation, in-game relationship management, combat mechanics, and leveling systems. While I’m still building experience in these areas, I have a strong ability to mentally map system interactions and a deep curiosity for how mechanics shape player experiences. I’ve also been practicing working with various levels of system complexity, adapting designs based on the needs of the game.
 

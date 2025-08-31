@@ -9,6 +9,7 @@
     <section class="about" area-label="about info">
         {% set about_info = get_section(path="_index.md")%}
         <article class="hero">
+           
             {{- about_info.content | safe -}}
         </article>
     </section>
