@@ -1,2 +1,9 @@
 {% set image = resize_image(path=path, width=width, height=height, op="fit") %}
-<img class="{{class}}" style="{{style}}" src="{{ image.url }}" />
+{% set_global url = image.url %}
+{% if image.url is containing(".com/") %}
+    {% set_global url = "https://" ~ image.url%}
+{% endif %}
+
+
+<img class="{{class}}" style="{{style}}"  src='{{ url }}' />
+ 
