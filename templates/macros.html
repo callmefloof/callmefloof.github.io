@@ -10,22 +10,22 @@
 {%macro display_cards(path="projects/_index.md", class="project-card") %}
 {% set cards_section = get_section(path=path) %}
 {% for card in cards_section.pages | sort(attribute="extra.index")%}
-    <a href="{{card.permalink}}">
+    <a href='{{card.path}}'>
         <article tabindex="{{card.extra.index}}" style="grid-column: 1;" class="{{class}}" role="region" aria-labelledby="{{card.title}}">
             <div class="video-hover-container">
                 {% if card.extra.is_youtube == false %}
                     {% if card.extra.preview_video == "" %}
-                        <img class="video-hover-container-fallback" src="{{card.permalink}}{{card.extra.preview_image}}" alt="Video thumbnail" />
+                        <img class="video-hover-container-fallback" src="{{card.path}}{{card.extra.preview_image}}" alt="Video thumbnail" />
                     {% else %}
                         {% if card.extra.preview_image is starting_with("http:") or card.extra.preview_image is starting_with("https:") %}
                             <img src="{{card.extra.preview_image}}" alt="Video thumbnail" />
                         {% else %}
-                            <img src="{{card.permalink}}{{card.extra.preview_image}}" alt="Video thumbnail" />
+                            <img src="{{card.path}}{{card.extra.preview_image}}" alt="Video thumbnail" />
                         {% endif %}
                         {% if card.extra.preview_video is starting_with("http:") or card.extra.preview_video is starting_with("https:")%}
                             <video src="{{card.extra.preview_video}}#t=1" autoplay muted loop></video>
                         {% else %}
-                            <video src="{{card.permalink}}{{card.extra.preview_video}}#t=1" autoplay muted loop></video>
+                            <video src="{{card.path}}{{card.extra.preview_video}}#t=1" autoplay muted loop></video>
                         {% endif %}
                     {% endif %}
                 {% else %}
