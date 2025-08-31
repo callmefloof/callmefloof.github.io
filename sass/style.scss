@@ -287,8 +287,8 @@ main {
 
 
 .project-card {
-  background: rgba( $color-accent-b, 1);
-  border: 1px solid rgba( $color-accent-b, 0.6);
+  background: rgba( $color-bg-a, 1);
+  border: 1px solid rgba( $color-bg-a, 0.6);
   border-radius: 8px;
   box-shadow:
     0 0 8px rgba( $color-accent-b, 0.4),
@@ -366,7 +366,7 @@ html:has(#effects-on:checked) .project-card {
 
 /*  */
 .blogpost {
-  background: rgba( $color-accent-b, 0.4);
+  background: rgba( $color-bg-a,1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   box-shadow:
@@ -381,6 +381,10 @@ html:has(#effects-on:checked) .project-card {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+}
+
+html:has(#effects-on:checked) .blogpost {
+  background: rgba( $color-accent-b, 0.4);
 }
 
 
@@ -504,7 +508,7 @@ a:hover, a:focus {
 }
 
 .post-header {
-  background: rgba( $color-accent-b, 1);
+  background: rgba( $color-bg-a, 1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   padding: 1rem;
@@ -530,7 +534,7 @@ html:has(#effects-on:checked) .post-header {
 }
 
 .toggle {
-  background: rgba( $color-accent-b, 1);
+  background: rgba( $color-bg-a, 1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   padding: 1rem;
@@ -583,7 +587,7 @@ html:has(#effects-on:checked) .toggle {
 
 
 .post {
-  background: rgba( $color-accent-b, 0.4);
+  background: rgba( $color-bg-a,1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   padding: 1rem;
@@ -595,6 +599,10 @@ html:has(#effects-on:checked) .toggle {
   min-width: 40%;
   max-width: 50vw;
   margin: auto;
+}
+
+html:has(#effects-on:checked) .post{
+  background: rgba( $color-accent-b, 0.4);
 }
 
 .lightbox {
@@ -693,8 +701,8 @@ html{
 }
 
 .hero {
-  background: rgba( $color-accent-b, 1);
-  border: 1px solid rgba( $color-accent-b, 0.6);
+  background: rgba($color-bg-a, 1);
+  border: 1px solid rgba( $color-bg-a, 0.6);
   border-radius: 8px;
   padding: 1rem;
   margin :auto;
