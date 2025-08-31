@@ -16,7 +16,7 @@ taxonomies = [
     { name = "aboutlinksimageurl", feed = true },
     { name = "tags", feed = true },
 ]
-
+minify_html = true
 
 [markdown]
 # Whether to do syntax highlighting
