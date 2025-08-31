@@ -16,7 +16,7 @@ $color-white:        #ffffff;
 /* Fonts - served from static/fonts/ */
 @font-face {
   font-family: 'WebPlus_IBM_VGA_8x16';
-  src: url('/fonts/WebPlus_IBM_VGA_8x16.woff') format('woff');
+  src: url('fonts/WebPlus_IBM_VGA_8x16.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -160,7 +160,7 @@ body .crt-bg {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: url("/images/crt-effect.png");
+  background: url("images/crt-effect.png");
   background-position: center;
   background-size: cover;
   pointer-events: none;
@@ -504,7 +504,7 @@ a:hover, a:focus {
 }
 
 .post-header {
-  background: rgba( $color-accent-b, 0.4);
+  background: rgba( $color-accent-b, 1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   padding: 1rem;
@@ -525,8 +525,12 @@ a:hover, a:focus {
 
 }
 
+html:has(#effects-on:checked) .post-header {
+    background: rgba( $color-accent-b, 0.4);
+}
+
 .toggle {
-  background: rgba( $color-accent-b, 0.4);
+  background: rgba( $color-accent-b, 1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   padding: 1rem;
@@ -543,8 +547,11 @@ a:hover, a:focus {
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
-  flex-grow: init;
 
+}
+
+html:has(#effects-on:checked) .toggle {
+  background: rgba( $color-accent-b, 0.4);
 }
 
 
