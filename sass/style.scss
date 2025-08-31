@@ -56,16 +56,14 @@ hr {
   max-width:2rem;
   max-height:2rem;
   margin-left: 1rem;
-  opacity: 100%;
-  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 .email-icon {
   width:2.8rem;
   height:2.8rem;
   margin-left: 1rem;
-  opacity: 100%;
-  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 svg.icon{
@@ -79,11 +77,11 @@ svg.icon{
 
 
 a:hover .icon {
-  mix-blend-mode: normal;
+  opacity: 1;
 }
 
 a:hover .email-icon {
-  mix-blend-mode: normal;
+  opacity: 1;
 }
 
 .links {
@@ -136,8 +134,10 @@ body::after {
   mix-blend-mode: screen;
 
   transform: scale(1.3);
-  animation: aura-drift 4096ms ease-in-out infinite alternate;
   opacity: 1;
+}
+body:has(#effects-on:checked)::after {
+    animation: aura-drift 4096ms ease-in-out infinite alternate;
 }
 
 @keyframes aura-drift {
@@ -155,7 +155,7 @@ body::after {
   }
 }
 
-.crt-bg {
+body .crt-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -178,8 +178,12 @@ body::before {
     url("images/crt-effect-2.png");
   mix-blend-mode: screen;
   background-position: center;
-  animation: scanline-move 6s linear infinite;
+  
   opacity: 0.8;
+}
+
+body:has(#effects-on:checked)::before{
+  animation: scanline-move 6s linear infinite;
 }
 
 @keyframes scanline-move {
@@ -209,6 +213,13 @@ html::after {
 
 .main-header {
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: fit-content;
+  gap:2rem;
+  margin: auto;
 }
 
 
@@ -276,7 +287,7 @@ main {
 
 
 .project-card {
-  background: rgba( $color-accent-b, 0.4);
+  background: rgba( $color-accent-b, 1);
   border: 1px solid rgba( $color-accent-b, 0.6);
   border-radius: 8px;
   box-shadow:
@@ -293,6 +304,11 @@ main {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+}
+
+html:has(#effects-on:checked) .project-card {
+  background: rgba( $color-accent-b, 0.4);
+
 }
 
 .project-card:hover,
@@ -379,6 +395,7 @@ a:hover, a:focus {
   color: $color-text-b;
   text-decoration: underline;
 }
+
 
 
 
@@ -475,41 +492,7 @@ a:hover, a:focus {
 }
 
 
-.hero {
-  background: rgba( $color-accent-b, 0.4);
-  border: 1px solid rgba( $color-accent-b, 0.6);
-  border-radius: 8px;
-  padding: 1rem;
-  margin :auto;
-  max-width: 50vw;
-  min-width: 30vw;
-  justify-content: center;
-  max-height: 1fr;
-  min-height: 40vh;
-  min-height: 20vh;
-  box-shadow:
-    0 0 8px rgba( $color-accent-b, 0.4),
-    inset 0 0 10px rgba( $color-accent-b, 0.6);
-  transition: box-shadow 0.3s ease, background 0.3s ease;
-}
 
-.hero p, .hero a, .post p, .post a {
-  font-size: 1.4rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.hero-h1 {
-  font-size: 3.8rem;
-
-  text-align: center;
-}
-
-.hero-h2 {
-  font-size: 2.4rem;
-
-  text-align: center;
-}
 
 .hero-skill-list li {
   font-size: 1.4rem;
@@ -542,6 +525,28 @@ a:hover, a:focus {
 
 }
 
+.toggle {
+  background: rgba( $color-accent-b, 0.4);
+  border: 1px solid rgba( $color-accent-b, 0.6);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow:
+    0 0 8px rgba( $color-accent-b, 0.4),
+    inset 0 0 10px rgba( $color-accent-b, 0.6);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  flex-grow: init;
+
+}
+
 
 .post-header a {
   font-size: 3rem;
@@ -549,6 +554,26 @@ a:hover, a:focus {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+.toggle input, .toggle label{
+  font-size: 2rem;
+  margin: auto;
+}
+
+.toggle label {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.toggle input[type="checkbox"] {
+  background-color: transparent;
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid rgba( $color-accent-b, 1);
+  accent-color: $color-accent-a;
+}
+
+
 
 .post {
   background: rgba( $color-accent-b, 0.4);
@@ -660,6 +685,49 @@ html{
   height: 100vh;
 }
 
+.hero {
+  background: rgba( $color-accent-b, 1);
+  border: 1px solid rgba( $color-accent-b, 0.6);
+  border-radius: 8px;
+  padding: 1rem;
+  margin :auto;
+  max-width: 50vw;
+  min-width: 30vw;
+  justify-content: center;
+  max-height: 1fr;
+  min-height: 40vh;
+  min-height: 20vh;
+  box-shadow:
+    0 0 8px rgba( $color-accent-b, 0.4),
+    inset 0 0 10px rgba( $color-accent-b, 0.6);
+}
+
+html:has(#effects-on:checked) .hero{
+  background: rgba( $color-accent-b, 0.4);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+
+.hero p, .hero a, .post p, .post a {
+  font-size: 1.4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.hero-h1 {
+  font-size: 3.8rem;
+
+  text-align: center;
+}
+
+.hero-h2 {
+  font-size: 2.4rem;
+
+  text-align: center;
+}
+
+
+
 /* Responsive breakpoints for mobile-friendly font sizing */
 
 
@@ -710,7 +778,8 @@ html{
 
   .hero { max-width: 90vw; min-width: auto; padding: 0.75rem; min-height: 28vh; }
   .hero p, .hero a, .post p, .post a {font-size: large;   padding-left: 1rem; padding-right: 1rem;} 
-  .hero h1 {font-size: x-large;}
+  .hero h1, .hero-h1 {font-size: x-large;}
+  .hero h2, .hero-h2 {font-size: large;}
   .post p {font-size: large;}
   .post h1 {font-size: x-large;}
   .project-card-info h2 { font-size: 1.4rem; }
@@ -724,12 +793,11 @@ html{
 
 @media (max-width: 480px) {
   html { font-size: 14px; }
-  .hero p, .hero a, .post p, .post a {font-size: medium;}
-  .hero h1 {font-size: x-large;}
+  .hero p, .hero a, .post p, .post a {font-size: small;}
   .post h1 {font-size: x-large;}
 
   body { padding: 0.75rem; }
-
+  .hero { min-width: 80vw; }
   .greeting h1 { font-size: 3.4rem; }
   .greeting h2 { font-size: 1.7rem; }
   .greeting h1 + h2 { margin-top: -1rem;}
@@ -737,8 +805,9 @@ html{
   .links a {font-size: large;}
   .links { flex-direction: column; gap: 0.25rem; flex-direction: column; }
   .project-card-info h2 { font-size: 1.1rem; padding-left: 0.5rem; }
-
+  .toggle {max-width: 80%; margin-top: 0; margin-bottom: 0;}
   .icon, .email-icon { width: 1.4rem; height: 1.4rem; margin-left: 0.5rem; }
   .video-hover-container img, .video-hover-container video { object-fit: cover; }
+  main {max-width: 100%;}
 }
 
