@@ -46,7 +46,7 @@
         {% set_global idx = idx + 1 %}
         {% elif asset is matching("[.](mp4|webm)$") %}
           <a href="#item{{ idx }}" class="gallery-thumb">
-            <video muted width="480" height="320">
+            <video muted >
               <source src="{{asset ~ '#t=0.1'}}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
