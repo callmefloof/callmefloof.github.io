@@ -7,10 +7,15 @@ tags = ["C++", "Godot", "Flecs", "Engine"]
 index = 0
 preview_image = ""
 preview_video = ""
-is_youtube = false
+is_youtube = true
 tags = ["C++", "Godot", "Flecs", "Engine"]
-yvid_id = ""
+yvid_id = "P6AEflA3roU"
 +++
 
-# [Project Link](https://github.com/callmefloof)
+
+
+{{youtube(id="P6AEflA3roU", width="1280", height="720", class="youtube-video")}}
+
+
+# [Project Link](https://github.com/callmefloof/godot-turbo)
 

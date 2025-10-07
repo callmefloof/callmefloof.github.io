@@ -1,9 +1,9 @@
 <div class="gallery">
   {# First pass: count image assets (jpg/png) #}
-  {% set img_total = 0 %}
+  {% set content_total = 0 %}
   {% for asset in page.assets %}
-    {% if asset is matching("[.](jpg|png)$") %}
-      {% set_global img_total = img_total + 1 %}
+    {% if asset is matching("[.](jpg|png|mp4|webm)$") %}
+      {% set_global content_total = content_total + 1 %}
     {% endif %}
   {% endfor %}
 
@@ -11,32 +11,67 @@
   {% set idx = 0 %}
   
   {% for asset in page.assets %}
-    {% if asset is matching("[.](jpg|png)$") %}
-      {% set thumb = resize_image(path=asset, width=480, height=320) %}
-      {% set full = resize_image(path=asset, width=1200, height=800, op="fit") %}
+    {% set excluded_list = excluded | default(value=[]) %}
+    {% set skip = false %}
+    {% for ex in excluded_list %}
+      {% if ex and (asset | contains(key=ex)) %}
+        {% set skip = true %}
+      {% endif %}
+    {% endfor %}
+    {% if not skip %}
+      {% if asset is matching("[.](jpg|png)$") %}
+        {% set thumb = resize_image(path=asset, width=480, height=320) %}
+        {% set full = resize_image(path=asset, width=1200, height=800, op="fit") %}
 
-      <a href="#img{{ idx }}" class="gallery-thumb">
-        <img src="{{ thumb.url }}" alt="" />
-      </a>
+        <a href="#item{{ idx }}" class="gallery-thumb">
+          <img src="{{ thumb.url | trim_start_matches(pat='joelleubink.com/') }}" alt="" /> 
+        </a>
 
-      <div class="lightbox" id="img{{ idx }}">
-        <a href="#" class="close">&times;</a>
-        {% if (idx - 1) < 0 %}
-          {% set prev = img_total - 1 %}
-        {% else %}
-          {% set prev = idx - 1 %}
+        <div class="lightbox" id="item{{ idx }}">
+          <a href="#" class="close">&times;</a>
+          {% if (idx - 1) < 0 %}
+            {% set prev = content_total - 1 %}
+          {% else %}
+            {% set prev = idx - 1 %}
+          {% endif %}
+          {% if (idx + 1) >= content_total %}
+            {% set next = 0 %}
+          {% else %}
+            {% set next = idx + 1 %}
+          {% endif %}
+          <a href="#item{{ prev }}" class="prev">&#10094;</a>
+          <a href="#item{{ next }}" class="next">&#10095;</a>
+          <img src="{{ asset }}" alt="" />
+        </div>
+        {% set_global idx = idx + 1 %}
+        {% elif asset is matching("[.](mp4|webm)$") %}
+          <a href="#item{{ idx }}" class="gallery-thumb">
+            <video muted width="480" height="320">
+              <source src="{{asset ~ '#t=0.1'}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </a>
+          <div class="lightbox" id="item{{ idx }}">
+            <a href="#" class="close">&times;</a>
+            {% if (idx - 1) < 0 %}
+              {% set prev = content_total - 1 %}
+            {% else %}
+              {% set prev = idx - 1 %}
+            {% endif %}
+            {% if (idx + 1) >= content_total %}
+              {% set next = 0 %}
+            {% else %}
+              {% set next = idx + 1 %}
+            {% endif %}
+            <a href="#item{{ prev }}" class="prev">&#10094;</a>
+            <a href="#item{{ next }}" class="next">&#10095;</a>
+            <video controls autoplay muted>
+              <source src="{{ asset }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          {% set_global idx = idx + 1 %}
         {% endif %}
-        {% if (idx + 1) >= img_total %}
-          {% set next = 0 %}
-        {% else %}
-          {% set next = idx + 1 %}
-        {% endif %}
-        <a href="#img{{ prev }}" class="prev">&#10094;</a>
-        <a href="#img{{ next }}" class="next">&#10095;</a>
-        <img src="{{ asset }}" alt="" />
-      </div>
-
-      {% set_global idx = idx + 1 %}
     {% endif %}
   {% endfor %}
 </div>
