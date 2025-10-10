@@ -2,13 +2,13 @@
 title = "Godot Turbo"
 description = "A lightweight Entity-Component-System Module for Godot."
 [taxonomy]
-tags = ["C++", "Godot", "Flecs", "Engine"]
+tags = ["C++", "Godot", "Flecs", "Engine", "Solo Project"]
 [extra]
 index = 0
 preview_image = ""
 preview_video = ""
 is_youtube = true
-tags = ["C++", "Godot", "Flecs", "Engine"]
+tags = ["C++", "Godot", "Flecs", "Engine", "Solo Project"]
 yvid_id = "P6AEflA3roU"
 +++
 

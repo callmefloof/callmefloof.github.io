@@ -1,14 +1,14 @@
 +++
 title = "SFML Car Game"
-description = ""
+description = "A simple speed racer clone"
 [taxonomy]
-tags = ["C++", "SFML"]
+tags = ["C++", "SFML", "2D", "Collision Detection", "Solo Project"]
 [extra]
 index = 2
 preview_image = "firefox_2025-03-17_21-53-23.png"
 preview_video = ""
 is_youtube = true
-tags = ["C++", "SFML", "2D", "Collision Detection" ]
+tags = ["C++", "SFML", "2D", "Collision Detection", "Solo Project"]
 yvid_id = "6UicnBiXGnI"
 +++
 

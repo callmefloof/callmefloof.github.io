@@ -14,14 +14,14 @@ assets = [
 ]
 
 [taxonomies]
-tags = ["Unity", "C#", "Procedural Generation", "Open World"]
+tags = ["Unity", "C#", "Procedural Generation", "Open World", "Solo Project"]
 
 
 [extra]
 index = 0
 preview_image = ""
 preview_video = ""
-tags = ["Unity", "C#", "Procedural Generation", "Open World"]
+tags = ["Unity", "C#", "Procedural Generation", "Open World", "Solo Project"]
 is_youtube = true
 yvid_id = "5ESn7UH4CiY"
 +++

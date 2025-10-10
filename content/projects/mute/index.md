@@ -2,13 +2,13 @@
 title = "Mute"
 description = "A 2-week group project centered around creating an interactive narrative experience."
 [taxonomy]
-tags = ["C#", "Unity"]
+tags = ["C#", "Unity", "Group Project"]
 [extra]
 index = 1
 preview_image = "4tXO42.png"
 preview_video = ""
 is_youtube = true
-tags = ["C#", "Unity", "Narrative", "Shaders", "Gameplay"]
+tags = ["C#", "Unity", "Narrative", "Shaders", "Gameplay", "Group Project"]
 yvid_id = "436KlXZbQuo"
 +++
 

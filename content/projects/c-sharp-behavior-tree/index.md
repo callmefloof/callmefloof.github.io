@@ -2,13 +2,13 @@
 title = "C# Behavior Tree"
 description = ""
 [taxonomy]
-tags = ["C#", "Unity"]
+tags = ["C#", "Unity", "Solo Project"]
 [extra]
 index = 3
 preview_image = ""
 preview_video = ""
 is_youtube = true
-tags = ["C#", "Unity", "AI", "Simulation"]
+tags = ["C#", "Unity", "AI", "Simulation", "Solo Project"]
 yvid_id = "OoIPVOmgLnA"
 +++
 

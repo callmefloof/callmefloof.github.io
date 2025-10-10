@@ -108,7 +108,7 @@ Beyond gameplay systems, I have a strong passion for programming itself. I’m a
 {{heroh1(body="Development Skills")}}
 <div style="margin:auto; width:40%">
     <h2 class="hero-h2" style="text-align:center">Programming Languages</h2>
-    {{skilllist(skills=["C#","C++"])}}
+    {{skilllist(skills=["C#","C++", "HTML/CSS/JS", "Python"])}}
 </div>
 
 
