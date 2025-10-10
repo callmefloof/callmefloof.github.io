@@ -69,7 +69,11 @@ gitlab_link = "https://gitlab.com/callmefloof"
 programming_languages = [
     "C#",
     "C++",
+    "Python",
+    "HTML/CSS/JS",
 ]
+
+
 programming_languages_skill_levels = [
     76,
     100
