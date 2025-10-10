@@ -28,8 +28,7 @@ yvid_id = "5ESn7UH4CiY"
 # [Project Link](https://git.hku.nl/joelle.ubink/vygr-unity)
 
 
-{{youtube(id="5ESn7UH4CiY", width="1280", height="720", class="youtube-video")}}
-
+{{youtube(id="rSOtIdGTKd0", width="1280", height="720", class="youtube-video")}}
 
 In the first year of my degree program at HKU, I made a procedural city generator for my end-year project over a 5-6 month period.
 
