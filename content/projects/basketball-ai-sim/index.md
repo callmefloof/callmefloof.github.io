@@ -3,7 +3,7 @@ title = "Unity Basketball AI"
 description = ""
 assets=["vlc_2025-03-02_22-53-12.png"]
 [taxonomy]
-tags = ["C#", "Unity" "AI", "Fuzzy Logic", "Duo Project"]
+tags = ["C#", "Unity", "AI", "Fuzzy Logic", "Duo Project"]
 [extra]
 index = 3
 preview_image = "vlc_2025-03-02_22-53-12.png"
