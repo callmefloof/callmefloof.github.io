@@ -27,6 +27,10 @@ yvid_id = "5ESn7UH4CiY"
 +++
 # [Project Link](https://git.hku.nl/joelle.ubink/vygr-unity)
 
+
+{{youtube(id="5ESn7UH4CiY", width="1280", height="720", class="youtube-video")}}
+
+
 In the first year of my degree program at HKU, I made a procedural city generator for my end-year project over a 5-6 month period.
 
 I started making this procedural city generator in the Godot game engine but later switched to Unity. I switched to Unity as it had better tools for debugging the generation while I was working on it. The system works through layers and the only-the-fly instantiation of prefab objects. This allowed me to implement a floating origin system allowing the map size to reach millions of units without issue.
