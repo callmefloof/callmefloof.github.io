@@ -24,7 +24,7 @@
         {% set full = resize_image(path=asset, width=1200, height=800, op="fit") %}
 
         <a href="#item{{ idx }}" class="gallery-thumb">
-          <img src="{{ thumb.url | trim_start_matches(pat='joelleubink.com/') }}" alt="" /> 
+          <img src="{{ thumb.url | trim_start_matches(pat='joelleubink.com') }}" alt="" /> 
         </a>
 
         <div class="lightbox" id="item{{ idx }}">

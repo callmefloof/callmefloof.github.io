@@ -17,4 +17,4 @@ yvid_id = ""
 
 # [Project Link](https://git.hku.nl/joelle.ubink/cppboidsgame)
 
-The Boids algorithm used implements the basic rules of cohesion, separation, and alignment. The Boids are baised towards staying within the screen and the speed is adjustable.
+The Boids algorithm used implements the basic rules of cohesion, separation, and alignment. The Boids are baised towards staying within the screen and the speed is adjustable. 

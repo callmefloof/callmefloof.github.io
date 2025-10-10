@@ -3,12 +3,20 @@
 {% block content %}
 <div class="greeting">
     <h1>Hello,</h1>
-    <h2>I am Joëlle Ubink</h2>
+    <div class="hero">
+        <img src="/images/who.png" alt="Who? It's me, Joëlle!" class="hero-profile-pic"/>
+        <div class="hero-text">
+            <h1>I am Joëlle Ubink</h1>
+            <h2>A Game Developer based in the Netherlands specializing in creating immersive experiences through systems.</h2>
+        </div>
+        
+        <!-- <h3>“Building worlds that feel alive through systems.”</h3> -->
+    </div>
 </div>
 <main>
     <section class="about" area-label="about info">
         {% set about_info = get_section(path="_index.md")%}
-        <article class="hero">
+        <article class="info">
            
             {{- about_info.content | safe -}}
         </article>
