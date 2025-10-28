@@ -10,6 +10,12 @@ preview_video = ""
 is_youtube = true
 tags = ["C#", "Unity", "Narrative", "Shaders", "Gameplay", "Group Project"]
 yvid_id = "436KlXZbQuo"
+
+col_start = 4
+col_span = 2
+row_start = 3
+row_span = 2
+
 +++
 
 # [Project Link](https://levisulmann.itch.io/mute)

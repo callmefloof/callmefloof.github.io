@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<main>
+    <section class="about" area-label="about info">
+        {% set about_info = get_section(path="about/_index.md")%}
+        <article class="info">
+
+            {{- about_info.content | safe -}}
+        </article>
+    </section>
+</main>
+{% endblock content %}

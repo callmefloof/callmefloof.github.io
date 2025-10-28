@@ -10,6 +10,12 @@ preview_video = "CPPBoidsGame_2025-03-02_22-49-22.mp4"
 is_youtube = false
 tags = ["C++", "SFML", "Solo Project"]
 yvid_id = ""
+
+col_start = 4
+col_span = 3
+row_start = 5
+row_span = 2
+
 +++
 
 {{video(style="width:90%; margin: auto; display: block;" source="CPPBoidsGame_2025-03-02_22-49-22.mp4")}}
@@ -17,4 +23,4 @@ yvid_id = ""
 
 # [Project Link](https://git.hku.nl/joelle.ubink/cppboidsgame)
 
-The Boids algorithm used implements the basic rules of cohesion, separation, and alignment. The Boids are baised towards staying within the screen and the speed is adjustable. 
+The Boids algorithm used implements the basic rules of cohesion, separation, and alignment. The Boids are baised towards staying within the screen and the speed is adjustable.

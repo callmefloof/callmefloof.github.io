@@ -24,6 +24,13 @@ preview_video = ""
 tags = ["Unity", "C#", "Procedural Generation", "Open World", "Solo Project"]
 is_youtube = true
 yvid_id = "5ESn7UH4CiY"
+
+col_start = 5
+col_span = 4
+row_start = 1
+row_span = 2
+
+
 +++
 # [Project Link](https://git.hku.nl/joelle.ubink/vygr-unity)
 

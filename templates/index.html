@@ -1,28 +1,20 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
 {% block content %}
-<div class="greeting">
-    <h1>Hello,</h1>
-    <div class="hero">
+
+<main>
+    <section class="hero grid-8x8" aria-label="hero">
+        <h1 class="hero-greeting">Hello,</h1>
         <img src="/images/who.png" alt="Who? It's me, Joëlle!" class="hero-profile-pic"/>
         <div class="hero-text">
             <h1>I am Joëlle Ubink</h1>
             <h2>A Game Developer based in the Netherlands specializing in creating immersive experiences through systems.</h2>
         </div>
-        
-        <!-- <h3>“Building worlds that feel alive through systems.”</h3> -->
-    </div>
-</div>
-<main>
-    <section class="about" area-label="about info">
-        {% set about_info = get_section(path="_index.md")%}
-        <article class="info">
-           
-            {{- about_info.content | safe -}}
-        </article>
     </section>
-    <section class="projects" aria-label="portfolio projects">
-    {{- macros::display_cards() -}}       
+    <h1 id="projects" class="header_h1">Projects</h1>
+    <br/>
+    <section class="grid-8x8 rowsize-200 projects" aria-label="portfolio projects">
+    {{- macros::display_cards() -}}
     </section>
-</main>   
+</main>
 {% endblock content %}

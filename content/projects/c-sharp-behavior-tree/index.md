@@ -10,6 +10,13 @@ preview_video = ""
 is_youtube = true
 tags = ["C#", "Unity", "AI", "Simulation", "Solo Project"]
 yvid_id = "OoIPVOmgLnA"
+
+col_start = 1
+col_span = 3
+row_start = 5
+row_span = 2
+
+
 +++
 
 {{youtube(id="OoIPVOmgLnA", width="1280", height="720", class="youtube-video")}}
