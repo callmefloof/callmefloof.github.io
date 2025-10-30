@@ -9,13 +9,13 @@
 
   {# Second pass: render thumbnails and lightboxes, increment idx only for images #}
   {% set idx = 0 %}
-  
+
   {% for asset in page.assets %}
     {% set excluded_list = excluded | default(value=[]) %}
-    {% set skip = false %}
+    {% set_global skip = false %}
     {% for ex in excluded_list %}
-      {% if ex and (asset | contains(key=ex)) %}
-        {% set skip = true %}
+      {% if ex and asset is containing(ex) %}
+        {% set_global skip = true %}
       {% endif %}
     {% endfor %}
     {% if not skip %}
@@ -24,7 +24,7 @@
         {% set full = resize_image(path=asset, width=1200, height=800, op="fit") %}
 
         <a href="#item{{ idx }}" class="gallery-thumb">
-          <img src="{{ thumb.url | trim_start_matches(pat='joelleubink.com') }}" alt="" /> 
+          <img src="{{ thumb.url | trim_start_matches(pat='joelleubink.com') }}" alt="" />
         </a>
 
         <div class="lightbox" id="item{{ idx }}">

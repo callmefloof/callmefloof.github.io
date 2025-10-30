@@ -1,10 +1,35 @@
-<div {% if class %}class="{{class}}"{% endif %}>
+{% set _id = id | default(value="") %}
+{% set _class = class | default(value="youtube-video") %}
+{% set _width = width | default(value="100%") %}
+{% set _height = height | default(value="100%") %}
+{% set _title = title | default(value="YouTube video") %}
+
+{# Optional behavior flags (accepts booleans or truthy strings) #}
+{% set _autoplay = autoplay | default(value=false) %}
+{% set _mute = mute | default(value=false) %}
+{% set _loop = loop | default(value=false) %}
+
+{# Optional player params #}
+{% set _controls = controls | default(value=1) %}
+{% set _rel = rel | default(value=0) %}
+{% set _modest = modest | default(value=1) %}
+{% set _playsinline = playsinline | default(value=1) %}
+{% set _vq = vq | default(value="") %}
+
+{% if _id == "" %}
+<div class="{{ _class }}">Invalid YouTube embed: missing id.</div>
+{% else %}
+<div class="{{ _class }}">
     <iframe
-        src="https://www.youtube.com/embed/{{id}}{% if autoplay %}?autoplay=1{% endif %}"
-        webkitallowfullscreen
-        mozallowfullscreen
+        width="{{ _width }}"
+        height="{{ _height }}"
+        src="https://www.youtube.com/embed/{{ _id }}?rel={{ _rel }}&modestbranding={{ _modest }}&playsinline={{ _playsinline }}{% if _autoplay %}&autoplay=1{% endif %}{% if _mute %}&mute=1{% endif %}{% if _loop %}&loop=1&playlist={{ _id }}{% endif %}{% if _controls == 0 %}&controls=0{% endif %}{% if _vq != "" %}&vq={{ _vq }}{% endif %}"
+        title="{{ _title }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
         loading="lazy">
-        
     </iframe>
 </div>
+{% endif %}

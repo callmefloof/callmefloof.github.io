@@ -96,9 +96,11 @@ game_engines = [
 
 +++
 
-{{ heroh1(body="About Me") }}
+
 
 <div class="clear-image">
+
+{{header_h1(body="About Me", center=true)}}
 
 I’m a game development student and aspiring gameplay programmer, eager to explore and develop systems that create emergent interactions between players and the game world. I’m fascinated by breaking down game mechanics into structured, scalable systems and aspire to tackle challenges like crowd simulation, in-game relationship management, combat mechanics, and leveling systems. While I’m still building experience in these areas, I have a strong ability to mentally map system interactions and a deep curiosity for how mechanics shape player experiences. I’ve also been practicing working with various levels of system complexity, adapting designs based on the needs of the game.
 
@@ -111,20 +113,19 @@ Beyond gameplay systems, I have a strong passion for programming itself. I’m a
 
 -----------------------------------------
 
-{{heroh1(body="Development Skills")}}
-<div style="margin:auto;">
-    <h2 class="header_h2" style="text-align:center">Programming Languages</h2>
-    {{skilllist(skills=["C#","C++", "HTML/CSS/JS", "Python"])}}
-</div>
+{{header_h1(body="Development Skills", center=true)}}
 
-<div style="margin:auto;">
-    <h2 class="header_h2" style="text-align:center">Game Engines</h2>
-    {{skilllist(skills=["Unity","Godot", "Unreal Engine"])}}
-</div>
+{{header_h2(body="Programming Languages", center=true) }}
+{{skilllist(skills=["C#","C++", "HTML/CSS/JS", "Python"])}}
+
+{{header_h2(body="Game Engines", center=true)}}
+{{skilllist(skills=["Unity","Godot", "Unreal Engine"])}}
+
+<br/>
 
 -----------------------------------------
 
-{{heroh1(body="Links")}}
+{{header_h1(body="Links")}}
 
 {{contactlinks()}}
 <br/>

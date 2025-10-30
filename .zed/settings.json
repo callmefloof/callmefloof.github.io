@@ -1,5 +1,6 @@
 {
   "file_types": {
-    "Tera (HTML)": ["html"]
+    "Tera (HTML)": ["html"],
+    "Tera (Markdown)": ["md"]
   }
 }

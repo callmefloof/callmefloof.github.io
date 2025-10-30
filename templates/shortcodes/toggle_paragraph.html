@@ -1,0 +1,114 @@
+{# toggle_paragraph.html
+Usage:
+
+{% set md %}
+# Section Title
+This is the content that can be toggled on and off. It supports **Markdown**.
+Additional lines will be included in the paragraph body.
+{% endset %}
+
+{% set html %}
+{{ md | markdown(inline=false) | safe }}
+{% endset %}
+
+Call as a paired shortcode in your Markdown content:
+{% toggle_paragraph(open="open", col_start=1, col_span=2, row_start=1, row_span=1, level=2) %}
+# Section Title
+This is the content that can be toggled on and off. It supports **Markdown**.
+
+Additional lines...
+{% end %}
+
+Parameters:
+- open / default: "open" | "closed" (default: "closed")
+- id: explicit id for accessibility; defaults to slugified header
+- col_start, col_span, row_start, row_span: optional grid placement for grid-*-* utilities
+- level: 1-6 heading level; overrides auto-detected level from leading '#' in the first line
+#}
+
+{# 1) Extract header (first line) and body (rest) from the shortcode body #}
+
+{% set raw = body | default(value="") %}
+{% set lines = raw | split(pat="\n") %}
+{% set header_line = lines[0] | default(value="") %}
+{% set header_trim = header_line | trim %}
+{% set tokens = header_trim | split(pat=" ") %}
+{% set first_token = tokens[0] | default(value="") %}
+
+{# Detect heading level from leading Markdown hashes #}
+{% set detected_level = 0 %}
+{% if first_token == "######" %}
+  {% set detected_level = 6 %}
+{% elif first_token == "#####" %}
+  {% set detected_level = 5 %}
+{% elif first_token == "####" %}
+  {% set detected_level = 4 %}
+{% elif first_token == "###" %}
+  {% set detected_level = 3 %}
+{% elif first_token == "##" %}
+  {% set detected_level = 2 %}
+{% elif first_token == "#" %}
+  {% set detected_level = 1 %}
+{% endif %}
+
+{# Build header text: if we detected hashes, drop the first token and rejoin #}
+{% if detected_level > 0 %}
+  {% if tokens | length > 1 %}
+    {% set header_text = tokens | slice(start=1) | join(sep=" ") | trim %}
+  {% else %}
+    {% set header_text = header_trim %}
+  {% endif %}
+{% else %}
+  {% set header_text = header_trim %}
+{% endif %}
+
+{% set body_lines = lines | slice(start=1) %}
+{% set body_md = body_lines | join(sep="\n") %}
+
+{# 2) Compute default open/closed state #}
+{% set _open = open | default(value="") %}
+{% set is_open = (_open == true) or (_open == 1) or (_open == "open") or (_open == "true") or (_open == "1") or (_open == "yes") %}
+
+{# 3) Compute an id for summary/details relationship #}
+{% set toggle_id = id | default(value=header_text | slugify) | default(value="toggle-paragraph") %}
+
+{# 4) Optional grid placement style (works with your grid-NxN utilities) #}
+{% set _col_start = col_start | default(value="") %}
+{% set _col_span  = col_span  | default(value="") %}
+{% set _row_start = row_start | default(value="") %}
+{% set _row_span  = row_span  | default(value="") %}
+
+{% if _col_start != "" or _col_span != "" or _row_start != "" or _row_span != "" %}
+    {% set __cs  = _col_start | default(value=1) %}
+    {% set __csp = _col_span  | default(value=1) %}
+    {% set __rs  = _row_start | default(value=1) %}
+    {% set __rsp = _row_span  | default(value=1) %}
+    {% set grid_style = "grid-column: " ~ __cs ~ "/span " ~ __csp ~ "; grid-row: " ~ __rs ~ "/span " ~ __rsp ~ ";" %}
+{% else %}
+    {% set grid_style = "" %}
+{% endif %}
+
+<div class="grid-cell toggle-paragraph" {% if grid_style != "" %}style="{{ grid_style }}"{% endif %}>
+  <details class="toggle-paragraph-details" id="{{ toggle_id }}"{% if is_open %} open{% endif %}>
+    {# Determine final heading level: param overrides detected, fallback to 1 #}
+    {% set lvl_raw = level | default(value="") %}
+    {% if lvl_raw == "" %}
+      {% if detected_level > 0 %}
+        {% set lvl = detected_level %}
+      {% else %}
+        {% set lvl = 1 %}
+      {% endif %}
+    {% else %}
+      {% set lvl = lvl_raw %}
+    {% endif %}
+    {% set heading_class = "header_h" ~ lvl %}
+    <summary class="toggle-paragraph-summary {{ heading_class }}" aria-controls="{{ toggle_id }}-content">
+      <span class="{{ heading_class }} toggle-paragraph-summary-text" role="heading" aria-level="{{ lvl }}">{{ header_text | default(value="") }}</span>
+    </summary>
+
+    <div id="{{ toggle_id }}-content" class="toggle-paragraph-body">
+      {# Render the rest of the Markdown content as HTML paragraphs #}
+      {{ body_md | safe }}
+    </div>
+  </details>
+</div>

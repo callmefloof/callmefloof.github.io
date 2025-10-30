@@ -1,0 +1,14 @@
+{% set _center = center | default(value="") %}
+{% set is_center = (_center == true) or (_center == 1) or (_center == "true") or (_center == "True") or (_center == "TRUE") or (_center == "yes") or (_center == "Yes") or (_center == "YES") or (_center == "center") or (_center == "Center") or (_center == "CENTER") %}
+{% set _size = size | default(value="") %}
+{% set _size_sm = size_sm | default(value="") %}
+{% set _size_md = size_md | default(value="") %}
+{% set style_attr = "" %}
+{% if _size != "" %}{% set style_attr = style_attr ~ "--header-h1-size:" ~ _size ~ ";" %}{% endif %}
+{% if _size_sm != "" %}{% set style_attr = style_attr ~ "--header-h1-size-sm:" ~ _size_sm ~ ";" %}{% endif %}
+{% if _size_md != "" %}{% set style_attr = style_attr ~ "--header-h1-size-md:" ~ _size_md ~ ";" %}{% endif %}
+<div>
+    <h1 class="header_h header_h1{% if is_center %} header_h--center{% endif %}"{% if style_attr != "" %} style="{{ style_attr }}"{% endif %}>
+        {{ body }}
+    </h1>
+</div>

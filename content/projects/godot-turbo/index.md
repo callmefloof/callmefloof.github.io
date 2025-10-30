@@ -18,16 +18,41 @@ row_span = 2
 
 +++
 
+{% grid(columns=8,rows=8) %}
+
+{% toggle_paragraph(open="open", col_start="5", col_span="4", row_start="1", row_span="4" level=2) %}
+Summary
+
+<p>I built a compact, high-performance Entity Component System module that embeds <a href="">FLECS</a> directly into Godot as a statically linked native module to simplify console porting and keep simulations fast and predictable.
+An initial prototype that used Godot <code class="language-cpp">Resource</code> / <code class="language-cpp">RefCounted</code> objects caused severe heap pressure under bulk create/destroy (stress tests spiked memory above ~40 GB), so I rewrote the bridge as a <a href="https://docs.godotengine.org/en/stable/engine_details/architecture/custom_godot_servers.html"><i>Godot Server</i></a> exposing opaque <code class="language-cpp">RID</code> handles via a <code class="language-cpp">FlecsServer</code> API.
+This allows designers and scripters to access entities and components from GDScript without creating thousands of Godot heap objects.
+I validated the system with a real-time <a href="https://docs.godotengine.org/en/stable/tutorials/performance/using_multimesh.html"><i>MultiMesh</i></a> demo (the “Bad Apple” animation rendered as a grid of cubes).
+The module is production-oriented, lowers runtime overhead, and is designed with console/static-link requirements in mind.</p>
+
+{% end %}
+
+{% gridcell(col_start=1,col_span=4,row_start=1,row_span=4) %}
+
 {{youtube(id="P6AEflA3roU", width="1280", height="720", class="youtube-video")}}
 
-# [Project Link](https://github.com/callmefloof/godot-turbo)
+{% end %}
 
-I made this module to have access to a fast, reliable ECS that could be integrated on a close level with Godot. I chose [FLECS](https://github.com/SanderMertens/flecs) because of its rich feature set and performance. Godot had other options and alternatives for implementing a ECS. These solutions however did not satify my requirements of having a low-level, well-optimized ECS being statically linked to Godot. Static linking provides the opportunity to simplify porting to Consoles as dynamic linking is not permitted on those platforms.
+{% toggle_paragraph(level=2, col_start="1", col_span="8", row_start="5", row_span="4") %}
+Details
 
-Initially I created an implentation relying on extending the Godot [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html) class as it provided a convenient way to write a reflection layer. This did not end up working due to the memory size and heap allocated nature of the underlying RefCounted and Object class. When creating or destroying a lot of instances at once memory would not be cleared quickly enough for it to add up. This caused the memory usage to spike above 40gbs.
+<p>The core uses <i><a href="https://www.flecs.dev/flecs/" >FLECS</a></i>, statically linked into Godot; entity and component lifetime, memory layout, and hot-path logic live fully in native C++. Script-side access is provided through <code class="language-cpp"><a href="https://docs.godotengine.org/en/stable/classes/class_rid.html">RID</a></code> handles managed by a <code class="language-cpp"><a href="https://github.com/callmefloof/godot-turbo/blob/main/ecs/flecs_types/flecs_server.h">FlecsServer</a></code> Godot Server, avoiding per-entity <code class="language-cpp"><a href="https://docs.godotengine.org/en/stable/classes/class_object.html">Object</a></code> allocations.
+The earlier Resource-based reflection layer was discarded after profiling revealed delayed reclamation and catastrophic memory growth when rapidly creating or destroying large numbers of objects.</p>
 
-I then scrapped most of the work done on the class structure and revised it to be a [Godot Server](https://docs.godotengine.org/en/stable/engine_details/architecture/custom_godot_servers.html), relying on [resource ID's](https://docs.godotengine.org/en/stable/classes/class_rid.html) to allow GDScript users to access Flecs via the [FlecsServer](https://github.com/callmefloof/godot-turbo/blob/main/ecs/flecs_types/flecs_server.h) class.
+<p>Rendering validation used a single **MultiMesh** driven by ECS-managed transforms to confirm efficient batched updates.
+An experimental per-instance frustum/occlusion culling system was tested, but per-frame GPU buffer uploads caused CPU–GPU sync stalls and frame-time spikes.
+Future improvements include GPU-driven culling via compute shaders and indirect draws, asynchronous or double-buffered instance uploads through the RenderingServer, and editor-friendly serialization that avoids reintroducing per-entity Godot objects.
+Longer-term plans involve moving native simulation to worker threads while keeping Godot API access on the main thread.</p>
 
-I also experimented with making a system to individually cull Multimesh instances, but this proved to be too challenging. I could not find update the buffer on the GPU with computed frustum and occlusion culling results without having significant framerate issues.
+<p>In interviews I focus on the memory-debugging investigation, the trade-offs between <code class="language-cpp">RID</code> and <code class="language-cpp">Object</code> ergonomics, and approaches to eliminate remaining rendering bottlenecks.</p>
 
-To test if it would work, I made a system rendering Bad Apple as spaced grid of cubes managed through a multimesh instance.
+<h1>Source Code</h1>
+<a href="https://github.com/callmefloof/godot-turbo">Project Link</a>
+
+{% end %}
+
+{% end %}

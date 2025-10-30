@@ -32,23 +32,67 @@ row_span = 2
 
 
 +++
-# [Project Link](https://git.hku.nl/joelle.ubink/vygr-unity)
 
+{% grid(columns=8,rows=8) %}
 
+{% gridcell(col_start=1,col_span=8,row_start=1,row_span=4) %}
+
+{% grid(columns=4,rows=1) %}
+
+{% gridcell(col_start=1,col_span=2,row_start=1,row_span=1) %}
 {{youtube(id="rSOtIdGTKd0", width="1280", height="720", class="youtube-video")}}
+{% end %}
 
-In the first year of my degree program at HKU, I made a procedural city generator for my end-year project over a 5-6 month period.
+{% gridcell(col_start=3,col_span=2,row_start=1,row_span=1) %}
 
-I started making this procedural city generator in the Godot game engine but later switched to Unity. I switched to Unity as it had better tools for debugging the generation while I was working on it. The system works through layers and the only-the-fly instantiation of prefab objects. This allowed me to implement a floating origin system allowing the map size to reach millions of units without issue.
+{% toggle_paragraph(open="open" level=2, col_start="1", col_span="8", row_start="1", row_span="4") %}
+Summary
 
-The layer system works by defining the characteristics of each layer with a custom script that tells the generator how to interpret each pixel of the image layer and how to apply it. The roadmap layout uses binary space partitioning to create a generated grid-based roadmap layout. The white space represents an area for buildings to spawn on while the black space represents a piece of road. The script interpreting the roadmap then interprets this information and instantiates it around the player. The height of buildings is determined through a pre-generated height map. The location of where roads, buildings, and water spawn are based on the Land/Ocean layer where a white pixel correlates to being land and a black pixel water.
+<p>During my first year at HKU, I developed a procedural city generator over a 5–6 month period as my end-of-year project.
+The goal was to generate an infinite, grid-based city world in real time while maintaining stable performance and visual quality.
+I began the project in Godot but switched to Unity for its superior debugging tools and faster iteration times.
+The system uses layered image maps to define city features such as roads, buildings, terrain, and water, with buildings spawned dynamically around the player using a <i>floating origin system</i>.
+This setup allowed the world to reach <i>millions</i> of in-game units in size without precision issues.</p>
 
-The generator spawns objects based on where the player is located in the virtual space. The virtual space is the size of the map in pixels multiplied by the predefined in-game size of a pixel. The player can be placed at any point in the world. The world then gets spawned around the player based on the maximum spawning distance for prefab objects. The world gets regenerated whenever the player travels too far away from their origin point. The origin point is a predefined position in the Unity game world. When the world gets regenerated the position of the player gets reset to the origin point while retaining the distance traveled in virtual space.
+<p>Despite performance challenges during regeneration, the project successfully demonstrated a large-scale procedural environment with static lighting, parallax windows, and an adaptable runtime generation system.</p>
 
-The prefabs contained prebaked lightmap information which enabled me to optimize lighting by making lighting static when far away from the player. The windows in the buildings feature parallax mapping for extra detail.
+{% end %}
 
-The one major issue I faced during development was the time needed to regenerate the world around the player. At render sizes of greater than 20 by 20 pixels from the map the FPS halves and creates stutter. I was partially able to address this by spreading out the instantiation of objects over a larger amount of frames. This approach created a new issue, however, as the world seemingly reappeared in front of the player, which broke the illusion of a contiguous world space. I ultimately ended up compromising by accepting some level of stutter when the world has to be regenerated.
+{% end %}
+{% end %}
 
-Due to time constraints, I was not able to look at other potential optimization techniques like object culling, (H)LODs, and object pooling. Nevertheless, I was quite happy with what I was able to make with the allotted time.
+{% end %}
 
-{{gallery()}}
+{% toggle_paragraph(level=2, col_start="1", col_span="8", row_start="5", row_span="4") %}
+Details
+
+<p>The generator is built around a layer-based procedural pipeline.
+Each layer corresponds to a map (e.g., roads, height, land/water), defined by a custom script that interprets pixel values to determine what should spawn and where.
+For instance, a <i>roadmap</i> layer uses binary space partitioning to subdivide space and generate a grid-like street layout—white pixels represent buildable zones, while black pixels mark roads.
+Other layers define building heights (via height maps) and land/water placement.</p>
+
+<p>
+Objects are instantiated on-the-fly based on the player’s position within a virtual coordinate space, calculated from map pixel size and in-game scale.
+The floating-origin system re-centers the player whenever they move too far from the origin, preventing floating-point precision loss while keeping virtual travel distances consistent.
+When regeneration occurs, the player is repositioned to the origin and the surrounding city is rebuilt according to their virtual coordinates.
+</p>
+
+<p>
+To optimize performance, all prefabs include prebaked lightmaps, allowing distant lighting to remain static, and parallax mapping adds depth to window surfaces.
+However, regeneration remained a major performance bottleneck, beyond a 20×20 map region, frame rate dropped significantly.
+I mitigated this by spreading object instantiation over multiple frames, trading reduced stutter for visible world “popping.”
+Although I could not fully solve this due to time constraints, possible improvements include object pooling, hierarchical LODs, and (GPU-accelerated) occlusion culling.
+</p>
+
+<p>
+Overall, the project proved a functional, large-scale procedural city system capable of dynamic world generation and spatial streaming.
+It served as an early exploration into scalability, floating origin mechanics, and balancing performance trade-offs in procedural world design.
+</p>
+
+
+<h1>Source Code</h1>
+<a href="https://git.hku.nl/joelle.ubink/vygr-unity">Project Link</a>
+
+{% end %}
+
+{% end %}

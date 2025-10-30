@@ -15,6 +15,22 @@ $color-white: #ffffff;
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Geo";
+    src: url("fonts/Geo/Geo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geo";
+    src: url("fonts/Geo/Geo-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 div {
     margin: 0;
 }
@@ -28,10 +44,8 @@ body {
         black 80%
     ); /* Very dark indigo */
     font-family:
-        "WebPlus_IBM_VGA_8x16", Inconsolata, "JetBrains Mono", "IBM Plex Mono",
-        monospace;
+        "Geo", Inconsolata, "JetBrains Mono", "IBM Plex Mono", monospace;
     color: $color-text-a; /* Soft indigo glow */
-    text-shadow: -2px 2px $backdrop-color-text-a;
     line-height: 1.6;
     position: relative;
     min-height: 100vh;
@@ -383,6 +397,7 @@ $grid-row-sizes: 120, 150, 180, 200, 240, 300, 360;
 .grid-cell {
     background: none; // optional, for debugging use rgba(0,0,0,0.05)
     overflow: hidden;
+    width: 100%;
 
     img,
     video {
@@ -400,23 +415,23 @@ $grid-row-sizes: 120, 150, 180, 200, 240, 300, 360;
     margin: auto;
     text-align: center;
     padding: 1rem;
-    font-size: 4.5rem;
+    font-size: var(--header-h1-size, 4.5rem);
     @media (max-width: 768px) {
-        font-size: 3rem;
+        font-size: var(--header-h1-size-sm, 3rem);
     }
     @media (max-width: 1024px) {
         @media (min-width: 768px) {
-            font-size: 4rem;
+            font-size: var(--header-h1-size-md, 4rem);
         }
     }
 }
 
 .header_h2 {
-    font-size: 3.5rem;
+    font-size: var(--header-h2-size, 3.5rem);
     text-align: center;
     width: 100%;
     @media (max-width: 768px) {
-        font-size: 2rem;
+        font-size: var(--header-h2-size-sm, 2rem);
     }
     @media (max-width: 1024px) {
         @media (min-width: 768px) {
@@ -571,12 +586,11 @@ $grid-row-sizes: 120, 150, 180, 200, 240, 300, 360;
 a {
     color: $color-text-a;
     transition: color 0.2s ease;
-    text-decoration: none;
+    text-decoration-style: wavy;
+
     &:hover,
     &:focus {
         color: $color-text-b;
-        text-decoration: underline !important;
-        text-decoration-style: wavy;
         .email-icon,
         .icon {
             opacity: 1;
@@ -727,6 +741,7 @@ a {
         margin: auto;
         padding-left: 2rem;
         padding-right: 2rem;
+        text-decoration: none;
     }
 
     @media (max-width: 768px) {
@@ -740,8 +755,97 @@ a {
         a {
             display: inline-block;
             text-align: center;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            body {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Toggle paragraph shortcode styles */
+        .grid-cell.toggle-paragraph,
+        .toggle-paragraph {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .toggle-paragraph-details {
+            background: rgba($color-bg-a, 1);
+            border: 1px solid rgba($color-accent-b, 0.6);
+            border-radius: 8px;
+            box-shadow:
+                0 0 8px rgba($color-accent-b, 0.4),
+                inset 0 0 10px rgba($color-accent-b, 0.6);
+            transition:
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+            color: $color-text-a;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .toggle-paragraph-summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: $color-text-a;
+            user-select: none;
+        }
+
+        .toggle-paragraph-summary::-webkit-details-marker {
+            display: none;
+        }
+        .toggle-paragraph-summary::marker {
+            content: "";
+        }
+
+        .toggle-paragraph-summary:focus-visible {
+            outline: 2px solid $color-text-a;
+            outline-offset: 2px;
+        }
+
+        .toggle-paragraph-indicator {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .toggle-paragraph-details[open] .toggle-paragraph-indicator {
+            transform: rotate(180deg);
+        }
+
+        .toggle-paragraph-body {
+            padding: 0 1rem 1rem 1rem;
+            color: $color-text-a;
+
+            p,
+            a {
+                font-size: 1.2rem;
+                margin: 0.25rem 0;
+                word-wrap: break-word;
+            }
+        }
+
+        /* Respect grid utilities and mobile constraints */
+        @media (max-width: 1024px) {
+            .grid-cell.toggle-paragraph,
+            .toggle-paragraph {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toggle-paragraph-summary {
+                padding: 0.5rem 0.75rem;
+                font-size: 1.25rem;
+            }
+            .toggle-paragraph-body {
+                padding: 0 0.75rem 0.75rem 0.75rem;
+            }
         }
     }
 }
@@ -800,12 +904,15 @@ a {
         box-shadow 0.3s ease,
         background 0.3s ease;
     min-width: 40%;
-    max-width: 50vw;
+    max-width: 80vw;
     margin: auto;
 
     p,
     a {
         font-size: 1.4rem;
+    }
+
+    p {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -1004,31 +1111,89 @@ html {
 
 /* Responsive breakpoints for mobile-friendly font sizing */
 
+.header_h {
+    padding: 1rem;
+    width: 100%;
+}
+
+.header_h--center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header_h3 {
+    font-size: var(--header-h3-size, 2.8rem);
+    @media (max-width: 768px) {
+        font-size: var(--header-h3-size-sm, 1.8rem);
+    }
+    @media (max-width: 1024px) {
+        @media (min-width: 768px) {
+            font-size: var(--header-h3-size-md, 2.4rem);
+        }
+    }
+}
+
+.header_h4 {
+    font-size: var(--header-h4-size, 2.2rem);
+    @media (max-width: 768px) {
+        font-size: var(--header-h4-size-sm, 1.6rem);
+    }
+    @media (max-width: 1024px) {
+        @media (min-width: 768px) {
+            font-size: var(--header-h4-size-md, 2rem);
+        }
+    }
+}
+
+.header_h5 {
+    font-size: var(--header-h5-size, 1.8rem);
+    @media (max-width: 768px) {
+        font-size: var(--header-h5-size-sm, 1.4rem);
+    }
+    @media (max-width: 1024px) {
+        @media (min-width: 768px) {
+            font-size: var(--header-h5-size-md, 1.6rem);
+        }
+    }
+}
+
+.header_h6 {
+    font-size: var(--header-h6-size, 1.4rem);
+    @media (max-width: 768px) {
+        font-size: var(--header-h6-size-sm, 1.2rem);
+    }
+    @media (max-width: 1024px) {
+        @media (min-width: 768px) {
+            font-size: var(--header-h6-size-md, 1.3rem);
+        }
+    }
+}
+
 .skill-list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     gap: 0.5rem;
     padding-left: 0;
     margin: 0 auto;
     list-style: none;
+    margin: auto;
+    width: fit-content;
 
-    font-size: 1.5rem;
-    @media (max-width: 768px) {
-        font-size: 1rem;
+    li {
+        min-width: 1rem;
+        min-height: 1rem;
+        align-items: center;
+        justify-content: left;
+        text-align: left;
     }
-}
 
-.skill-list li {
-    list-style: none;
-    min-width: 1rem;
-    min-height: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0.25rem 0.5rem;
+    font-size: 3rem;
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 1366px) {
@@ -1174,4 +1339,12 @@ html {
         max-width: 100%;
         height: auto;
     }
+}
+
+.language-cpp,
+.language-c-sharp {
+    background-color: #2e1a47;
+    color: $color-text-b;
+    font-family:
+        "Geo", Inconsolata, "JetBrains Mono", "IBM Plex Mono", monospace;
 }
