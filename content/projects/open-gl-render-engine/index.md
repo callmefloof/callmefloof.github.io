@@ -11,6 +11,11 @@ is_youtube = false
 tags = ["C++", "OpenGL", "Rendering", "Engine", "Solo Project"]
 yvid_id = ""
 
+project_year = "April/May 2025"
+project_type = "Solo project"
+project_duration = "5 weeks"
+
+
 col_start = 1
 col_span = 3
 row_start = 3
@@ -57,7 +62,7 @@ Overall, I found the experience to have provided me with a lot of context as to 
 
 <h1>Source Code</h1>
 
-<a href="https://git.hku.nl/joelle.ubink/game-dev-1">Project Link</a>
+<a href="https://git.hku.nl/joelle.ubink/glslopdrachten">Project Link</a>
 
 {% end %}
 

@@ -25,6 +25,11 @@ tags = ["Unity", "C#", "Procedural Generation", "Open World", "Solo Project"]
 is_youtube = true
 yvid_id = "5ESn7UH4CiY"
 
+project_year = "November 2023"
+project_type = "Solo project"
+project_duration = "5 months"
+
+
 col_start = 5
 col_span = 4
 row_start = 1

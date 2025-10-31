@@ -11,6 +11,10 @@ is_youtube = false
 tags = ["C++", "SFML", "Solo Project"]
 yvid_id = ""
 
+project_year = "January, 2025"
+project_type = "Solo project"
+project_duration = "<1 week"
+
 col_start = 4
 col_span = 3
 row_start = 5

@@ -11,6 +11,11 @@ is_youtube = true
 tags = ["C++", "Godot", "Flecs", "Engine", "Solo Project"]
 yvid_id = "P6AEflA3roU"
 
+project_year = "July, 2025"
+project_type = "Solo project"
+project_duration = "Ongoing"
+
+
 col_start = 1
 col_span = 4
 row_start = 1

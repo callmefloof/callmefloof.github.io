@@ -11,6 +11,11 @@ is_youtube = true
 tags = ["C++", "SFML", "2D", "Collision Detection", "Solo Project"]
 yvid_id = "6UicnBiXGnI"
 
+project_year = "April/May 2025"
+project_type = "Solo project"
+project_duration = "5 weeks"
+
+
 col_start = 7
 col_span = 2
 row_start = 5

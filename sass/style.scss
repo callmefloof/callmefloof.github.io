@@ -1,9 +1,8 @@
-$color-bg-a: #7a33c0;
+$color-bg-a: #330099;
 $color-secondary-a: rgb(0, 114, 87); // #0F705A
-$color-secondary-b: rgb(90, 15, 112); // #5A0F70
-$color-accent-b: rgb(155, 14, 236); // #9B0EEC
-$color-text-a: #09c790;
-$backdrop-color-text-a: #033526;
+$color-secondary-b: #240952; // #5A0F70
+$color-accent-b: #240952; // #9B0EEC
+$color-text-a: #009980;
 $color-text-b: rgb(179, 170, 255); // pastel purple
 $color-white: #ffffff;
 /* Fonts - served from static/fonts/ */
@@ -90,7 +89,7 @@ body {
         inset: 0;
         z-index: -2;
         pointer-events: none;
-        background-image: url("images/crt-effect-2.png");
+        background-image: url("images/crt-effect-3.png");
         mix-blend-mode: screen;
         background-position: center;
 
@@ -915,6 +914,10 @@ a {
     p {
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+
+    .subtitle {
+        margin: 0;
     }
 }
 

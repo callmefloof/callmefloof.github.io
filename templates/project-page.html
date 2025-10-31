@@ -7,7 +7,9 @@
   </h1>
   <hr>
   {{macros::create_tag_list(card=page)}}
-  <p class="subtitle"><strong>{{ page.date }}</strong></p>
+  <p class="subtitle"><strong>Start: {{ page.extra.project_year }}</strong></p>
+  <p class="subtitle"><strong>Type: {{ page.extra.project_type }}</strong></p>
+  <p class="subtitle"><strong>Project Duration: {{ page.extra.project_duration }}</strong></p>
   <hr>
   {{ page.content | safe }}
 </main>

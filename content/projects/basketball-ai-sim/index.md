@@ -11,7 +11,9 @@ preview_video = ""
 is_youtube = true
 tags = ["C#", "Unity", "AI", "Fuzzy Logic", "Duo Project"]
 yvid_id = "lks7dUlJo6w"
-
+project_year = "Febuary 2023"
+project_type = "Duo project"
+project_duration = "1.5 months"
 col_start = 6
 col_span = 3
 row_start = 3

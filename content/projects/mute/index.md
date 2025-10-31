@@ -11,6 +11,10 @@ is_youtube = true
 tags = ["C#", "Unity", "Narrative", "Shaders", "Gameplay", "Group Project"]
 yvid_id = "436KlXZbQuo"
 
+project_year = "January, 2024"
+project_type = "Group project"
+project_duration = "2 week"
+
 col_start = 4
 col_span = 2
 row_start = 3
