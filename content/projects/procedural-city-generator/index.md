@@ -53,13 +53,7 @@ row_span = 2
 {% toggle_paragraph(open="open" level=2, col_start="1", col_span="8", row_start="1", row_span="4") %}
 Summary
 
-<p>During my first year at HKU, I developed a procedural city generator over a 5–6 month period as my end-of-year project.
-The goal was to generate an infinite, grid-based city world in real time while maintaining stable performance and visual quality.
-I began the project in Godot but switched to Unity for its superior debugging tools and faster iteration times.
-The system uses layered image maps to define city features such as roads, buildings, terrain, and water, with buildings spawned dynamically around the player using a <i>floating origin system</i>.
-This setup allowed the world to reach <i>millions</i> of in-game units in size without precision issues.</p>
-
-<p>Despite performance challenges during regeneration, the project successfully demonstrated a large-scale procedural environment with static lighting, parallax windows, and an adaptable runtime generation system.</p>
+<p>This project was my first deep dive into procedural world generation. I wanted to see how a city could build itself dynamically in Unity, using layered images to place roads, buildings, and water. Along the way I learned how to manage large-scale worlds, implement a floating origin to keep positions stable, and deal with performance bottlenecks during regeneration. It taught me a lot about balancing creativity with technical limits, and how to make complex systems feel responsive and believable.</p>
 
 {% end %}
 
@@ -71,28 +65,13 @@ This setup allowed the world to reach <i>millions</i> of in-game units in size w
 {% toggle_paragraph(level=2, col_start="1", col_span="8", row_start="5", row_span="4") %}
 Details
 
-<p>The generator is built around a layer-based procedural pipeline.
-Each layer corresponds to a map (e.g., roads, height, land/water), defined by a custom script that interprets pixel values to determine what should spawn and where.
-For instance, a <i>roadmap</i> layer uses binary space partitioning to subdivide space and generate a grid-like street layout—white pixels represent buildable zones, while black pixels mark roads.
-Other layers define building heights (via height maps) and land/water placement.</p>
+<p>This was one of my first experiments in creating large, dynamic worlds. I wanted to see how far I could push procedural generation inside Unity while keeping it readable and modular. The project started in Godot but later moved to Unity for its stronger profiling and debugging tools.
 
-<p>
-Objects are instantiated on-the-fly based on the player’s position within a virtual coordinate space, calculated from map pixel size and in-game scale.
-The floating-origin system re-centers the player whenever they move too far from the origin, preventing floating-point precision loss while keeping virtual travel distances consistent.
-When regeneration occurs, the player is repositioned to the origin and the surrounding city is rebuilt according to their virtual coordinates.
-</p>
+The generator reads layered images to decide where roads, buildings, and water should go. Each layer has its own interpreter script, allowing me to tweak parameters individually and see changes in real time. Roads are generated using a Binary Space Partition (BSP) system that helps define blocks and intersections, while building height is derived from a grayscale heightmap. To keep everything stable at large scales, I implemented a floating origin system that recenters the world as the player moves.
 
-<p>
-To optimize performance, all prefabs include prebaked lightmaps, allowing distant lighting to remain static, and parallax mapping adds depth to window surfaces.
-However, regeneration remained a major performance bottleneck, beyond a 20×20 map region, frame rate dropped significantly.
-I mitigated this by spreading object instantiation over multiple frames, trading reduced stutter for visible world “popping.”
-Although I could not fully solve this due to time constraints, possible improvements include object pooling, hierarchical LODs, and (GPU-accelerated) occlusion culling.
-</p>
+Performance was the biggest challenge. Regenerating chunks caused heavy frame spikes, especially at higher detail levels. I mitigated some of this by spreading out instantiation over multiple frames, which reduced stutter but introduced some visible pop-in. If I revisit this project, I’d like to explore asynchronous generation and object pooling to keep things smooth, and perhaps use GPU instancing or impostors for distant geometry.
 
-<p>
-Overall, the project proved a functional, large-scale procedural city system capable of dynamic world generation and spatial streaming.
-It served as an early exploration into scalability, floating origin mechanics, and balancing performance trade-offs in procedural world design.
-</p>
+Despite its rough edges, the project gave me valuable insight into how procedural content can be streamed, how data and design constraints influence performance, and how to balance technical ambition with practical iteration.</p>
 
 
 <h1>Source Code</h1>

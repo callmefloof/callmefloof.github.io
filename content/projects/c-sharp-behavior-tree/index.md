@@ -41,14 +41,14 @@ Details
 </p>
 
 <p>
-I implemented several task nodes, including <code class="language-c-sharp">BTWalkToPointNode</code>, B<code class="language-c-sharp">TAttackPlayerNode</code>, and <code class="language-c-sharp">BTThrowSmokeBombNode</code>, to handle movement, combat, and interactions. The Guard and Rogue AI agents use this system, with the Guard detecting and reacting to the player. To facilitate communication between agents, I implemented a <code class="language-c-sharp">GlobalBlackboard</code>, allowing the rogue to respond to changes in the guard’s state.
+I implemented several task nodes, including <code class="language-c-sharp">BTWalkToPointNode</code>, <code class="language-c-sharp">BTAttackPlayerNode</code>, and <code class="language-c-sharp">BTThrowSmokeBombNode</code>, to handle movement, combat, and interactions. The Guard and Rogue AI agents use this system, with the Guard detecting and reacting to the player. To facilitate communication between agents, I implemented a <code class="language-c-sharp">GlobalBlackboard</code>, allowing the rogue to respond to changes in the guard’s state.
 </p>
 
 <p>
 I structured the tasks into generic and agent-specific categories to maximize reusability while maintaining flexibility. Additionally, I made the <code class="language-c-sharp">BTLogNode</code> capable of updating text above the agent’s head for easier debugging.
 </p>
 
-<h1>Source Codde</h1>
+<h1>Source Code</h1>
 <a href="https://git.hku.nl/joelle.ubink/unityaibehaviortree">Project Link</a>
 {% end %}
 

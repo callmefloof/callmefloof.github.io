@@ -102,10 +102,13 @@ game_engines = [
 
 {{header_h1(body="About Me", center=true)}}
 
-I’m a game development student and aspiring gameplay programmer, eager to explore and develop systems that create emergent interactions between players and the game world. I’m fascinated by breaking down game mechanics into structured, scalable systems and aspire to tackle challenges like crowd simulation, in-game relationship management, combat mechanics, and leveling systems. While I’m still building experience in these areas, I have a strong ability to mentally map system interactions and a deep curiosity for how mechanics shape player experiences. I’ve also been practicing working with various levels of system complexity, adapting designs based on the needs of the game.
+I make games because I love creating worlds that feel alive and meaningful. What started as a spark from older games has turned into a curiosity-driven drive to capture just the right amount of detail — enough to matter, but still leaving room to experiment and discover better ways to make things work.
 
-Beyond gameplay systems, I have a strong passion for programming itself. I’m actively improving my skills by studying design patterns, optimizing code efficiency, and exploring new ways to create responsive and dynamic game systems.
+I tend to think in a data-first way: I like systems that are clear and predictable, but I also want the code to stay flexible so I can iterate and try new ideas without getting stuck. I don’t have all the answers, and that’s part of the fun — figuring out solutions to problems as they come is what keeps me engaged.
 
+I’m drawn to systems that allow emergent interactions — things like crowd simulation, in-game relationships, combat mechanics, and procedural content. I want to build large, traversable worlds, but with a focus on a few hand-crafted hubs that feel polished and meaningful. These areas should stand out, while still interacting naturally with the broader simulation.
+
+I’m still gaining experience, but I bring a strong ability to map out complex systems in my head and a constant curiosity for how mechanics shape player experiences. I’m always exploring design patterns, optimizing code, and finding ways to make systems responsive, adaptable, and intuitive to work with.
 </div>
 
 <br/>
