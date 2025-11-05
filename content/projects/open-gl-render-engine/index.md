@@ -1,6 +1,7 @@
 +++
 title = "OpenGL Render Engine"
-description = "A basic render engine written in C++ and OpenGL"
+description = "A simple OpenGL renderer built as a learning project to explore rendering architecture, resource management, and material abstraction."
+
 [taxonomy]
 tags = ["C++", "OpenGL", "Rendering", "Engine", "Solo Project"]
 [extra]

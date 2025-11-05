@@ -48,7 +48,7 @@ I implemented several task nodes, including <code class="language-c-sharp">BTWal
 I structured the tasks into generic and agent-specific categories to maximize reusability while maintaining flexibility. Additionally, I made the <code class="language-c-sharp">BTLogNode</code> capable of updating text above the agent’s head for easier debugging.
 </p>
 
-<h1>Source Codde</h1>
+<h1>Source Code</h1>
 <a href="https://git.hku.nl/joelle.ubink/unityaibehaviortree">Project Link</a>
 {% end %}
 
