@@ -38,7 +38,11 @@ row_span = 2
 {% toggle_paragraph(open="open" level=2, col_start="5", col_span="4", row_start="1", row_span="4") %}
 Summary
 
-<p>As part of a C++ programming project, I made a simple clone of Speed Racer in SFML. In prior years lead I had mainly specialized in C# until late 2024 when I decided to switch major from Game Design to Game Development. I had prior experience in C++, but hadn't completed a full project with it up until this point. There was a steep learning curve not relying on the notion of a garbage collector cleaning up after me. This project was a first stepping stone for me in developing games in C++.</p>
+<p>As part of a graphics programming course, I developed a small render engine to better understand modern rendering pipelines. The goal was to go beyond the LearnOpenGL tutorials by organizing the code into reusable classes and managing object lifecycles safely.
+
+I implemented a structured system using std::shared_ptr and std::weak_ptr for resource management, and built Shader, Texture, and Material classes that allowed me to configure and combine assets easily. The engine uses OpenGL 3.3 for rendering, glm for math, stb_image for texture loading, and Assimp for importing 3D models.
+
+This project gave me practical insight into how a renderer handles data flow between CPU and GPU, how materials abstract shader parameters, and how careful memory ownership simplifies engine code.</p>
 
 {% end %}
 
