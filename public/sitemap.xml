@@ -1,72 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://joelleubink.com/</loc>
+        <loc>joelleubink.com/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/aboutlinksimageurl/</loc>
+        <loc>joelleubink.com/about/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/aboutlinksisstaticsvg/</loc>
+        <loc>joelleubink.com/aboutlinksimageurl/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/aboutlinksnames/</loc>
+        <loc>joelleubink.com/aboutlinksisstaticsvg/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/aboutlinksstaticsvgtype/</loc>
+        <loc>joelleubink.com/aboutlinksnames/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/aboutlinksurls/</loc>
+        <loc>joelleubink.com/aboutlinksstaticsvgtype/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/blog/</loc>
+        <loc>joelleubink.com/aboutlinksurls/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/blog/textblogpost/</loc>
+        <loc>joelleubink.com/blog/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/</loc>
+        <loc>joelleubink.com/blog/textblogpost/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/basketball-ai-sim/</loc>
+        <loc>joelleubink.com/projects/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/c-sharp-behavior-tree/</loc>
+        <loc>joelleubink.com/projects/basketball-ai-sim/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/cpp-boids/</loc>
+        <loc>joelleubink.com/projects/c-sharp-behavior-tree/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/godot-turbo/</loc>
+        <loc>joelleubink.com/projects/cpp-boids/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/mute/</loc>
+        <loc>joelleubink.com/projects/godot-turbo/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/open-gl-render-engine/</loc>
+        <loc>joelleubink.com/projects/mute/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/procedural-city-generator/</loc>
+        <loc>joelleubink.com/projects/open-gl-render-engine/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/projects/sfml-car-game/</loc>
+        <loc>joelleubink.com/projects/procedural-city-generator/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/resume/</loc>
+        <loc>joelleubink.com/projects/sfml-car-game/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/tags/</loc>
+        <loc>joelleubink.com/resume/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/tags/c/</loc>
+        <loc>joelleubink.com/tags/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/tags/open-world/</loc>
+        <loc>joelleubink.com/tags/c/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/tags/procedural-generation/</loc>
+        <loc>joelleubink.com/tags/open-world/</loc>
     </url>
     <url>
-        <loc>https://joelleubink.com/tags/unity/</loc>
+        <loc>joelleubink.com/tags/procedural-generation/</loc>
+    </url>
+    <url>
+        <loc>joelleubink.com/tags/solo-project/</loc>
+    </url>
+    <url>
+        <loc>joelleubink.com/tags/unity/</loc>
     </url>
 </urlset>
