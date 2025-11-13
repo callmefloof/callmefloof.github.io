@@ -57,11 +57,11 @@ Longer-term plans involve moving native simulation to worker threads while keepi
 
 <h1>Update — Expanding the Flex Module</h1>
 
-I’ve recently expanded the Flex module with a more complete feature set. The main focus was on introducing Flex Queries and Flex Systems, separating them from the original Flex Script System to give the runtime a cleaner and more modular structure. This makes it easier to define and manage systems without mixing in script logic, and it sets a stronger foundation for future tools and extensions.
+<p>I’ve recently expanded the Flex module with a more complete feature set. The main focus was on introducing Flex Queries and Flex Systems, separating them from the original Flex Script System to give the runtime a cleaner and more modular structure. This makes it easier to define and manage systems without mixing in script logic, and it sets a stronger foundation for future tools and extensions.</p>
 
-This update was mostly about rounding off the API — polishing what was there, validating how it all fits together, and making sure the module feels cohesive and ready for production use. It’s now in a place where I can confidently start building the editor toolset on top of it.
+<p>This update was mostly about rounding off the API — polishing what was there, validating how it all fits together, and making sure the module feels cohesive and ready for production use. It’s now in a place where I can confidently start building the editor toolset on top of it.</p>
 
-Once that’s done, I’ll move on to rebuilding my earlier Procedural City Generator demo using the new system. The idea is to push it further and show how these new features can drive larger, more complex simulations while keeping everything flexible and performant.
+<p>Once that’s done, I’ll move on to rebuilding my earlier Procedural City Generator demo using the new system. The idea is to push it further and show how these new features can drive larger, more complex simulations while keeping everything flexible and performant.</p>
 
 <h1>Source Code</h1>
 <a href="https://github.com/callmefloof/godot-turbo">Project Link</a>
