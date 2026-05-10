@@ -15,9 +15,9 @@ project_year = "January, 2025"
 project_type = "Solo project"
 project_duration = "<1 week"
 
-col_start = 4
+col_start = 1
 col_span = 3
-row_start = 5
+row_start = 8
 row_span = 2
 
 +++

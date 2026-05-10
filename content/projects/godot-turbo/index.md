@@ -16,8 +16,8 @@ project_type = "Solo project"
 project_duration = "Ongoing"
 
 
-col_start = 1
-col_span = 4
+col_start = 6
+col_span = 8
 row_start = 1
 row_span = 2
 

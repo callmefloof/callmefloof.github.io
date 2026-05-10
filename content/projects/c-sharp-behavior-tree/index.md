@@ -15,7 +15,7 @@ project_year = "December, 2024"
 project_type = "Solo project"
 project_duration = "3 weeks"
 
-col_start = 1
+col_start = 6
 col_span = 3
 row_start = 5
 row_span = 2

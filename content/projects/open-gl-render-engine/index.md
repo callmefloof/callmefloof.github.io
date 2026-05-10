@@ -19,7 +19,7 @@ project_duration = "5 weeks"
 
 col_start = 1
 col_span = 3
-row_start = 3
+row_start = 5
 row_span = 2
 
 

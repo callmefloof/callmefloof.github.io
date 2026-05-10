@@ -16,9 +16,9 @@ project_type = "Solo project"
 project_duration = "5 weeks"
 
 
-col_start = 7
+col_start = 4
 col_span = 2
-row_start = 5
+row_start = 8
 row_span = 2
 
 +++

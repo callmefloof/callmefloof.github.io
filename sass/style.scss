@@ -441,7 +441,7 @@ $grid-row-sizes: 120, 150, 180, 200, 240, 300, 360;
 
 .projects {
     /* Height intentionally not managed here. Set it manually where needed. */
-
+    min-height: 120%;
     @media (max-width: 1024px) {
         /* Force 1 × N stacking on mobile and ignore inline grid placement */
         grid-template-columns: 1fr !important;

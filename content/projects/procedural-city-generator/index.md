@@ -30,9 +30,9 @@ project_type = "Solo project"
 project_duration = "5 months"
 
 
-col_start = 5
+col_start = 1
 col_span = 4
-row_start = 1
+row_start = 3
 row_span = 2
 
 
