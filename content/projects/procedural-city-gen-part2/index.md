@@ -44,11 +44,11 @@ Summary
 
 <p>Current performance at 4K resolution on an RTX 4070 Ti Super, Ryzen 5900X, and 64GB DDR4 RAM:</p>
 
-<ul>
-    <li>Around 100–200 FPS on average, depending on city density</li>
-    <li>Dense scenes include many generated buildings and light sources</li>
-    <li>Runtime memory usage is currently around 1 GB</li>
-
+<ul style="margin:0 2rem;width:90%;">
+    <li><p>Around 100–200 FPS on average, depending on city density</p></li>
+    <li><p>Dense scenes include many generated buildings and light sources</p></li>
+    <li><p>Runtime memory usage is currently around 1 GB</p></li>
+</ul>
 <p>This is still prototype footage, not a finished art pass. The current phase is about proving technical viability before expanding the project with more people.</p>
 
 {% end %}
