@@ -10,7 +10,7 @@ preview_image = ""
 preview_video = ""
 is_youtube = true
 tags = ["C++", "Godot", "Rendering", "Engine", "Solo Project", "ECS", "Procederal Generation"]
-yvid_id = "_ke20NuWtd0"
+yvid_id = "5tcIxi2qlhE"
 
 project_year = "April/May 2026"
 project_type = "Solo project"
@@ -31,7 +31,7 @@ row_span = 2
 
 {% gridcell(col_start=1,col_span=4,row_start=1,row_span=4) %}
 
-{{youtube(id="_ke20NuWtd0", width="1280", height="720", class="youtube-video")}}
+{{youtube(id="5tcIxi2qlhE", width="1280", height="720", class="youtube-video")}}
 
 {% end %}
 
@@ -45,7 +45,7 @@ Summary
 <p>Current performance at 4K resolution on an RTX 4070 Ti Super, Ryzen 5900X, and 64GB DDR4 RAM:</p>
 
 <ul style="margin:0 2rem;width:90%;">
-    <li><p>Around 100–200 FPS on average, depending on city density</p></li>
+    <li><p>Around 100–300 FPS on average, depending on city density</p></li>
     <li><p>Dense scenes include many generated buildings and light sources</p></li>
     <li><p>Runtime memory usage is currently around 1 GB</p></li>
 </ul>
